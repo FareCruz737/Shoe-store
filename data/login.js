@@ -2,10 +2,12 @@ let express = require('express');
 let users = require("./Users");
 const cypto = require('crypto');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const verifyToken = require('../middleware/Testing_of_Token');
+require('dotenv').config();
 
 const login = express.Router();
-
-
+const SECRET = process.env.Password_Secret;
 // where the users registration data will be stored
 
 login.post('/register', async (req, res) => {
@@ -26,33 +28,43 @@ login.post('/register', async (req, res) => {
     return res.status(400).json({ message: 'Este correo ya está registrado.' });
   }
 
+  
+
+
   const hashedPassword = await bcrypt.hash(password, 10);
   const id = cypto.randomBytes(16).toString("hex");
+
   const newUser = {
     id: id,
     name,
     lastname,
     gmail,
     password: hashedPassword,
-    age,
+    age
   };
 
     users.push(newUser);
+    const token = jwt.sign({ id: id, gmail: gmail}, SECRET, { expiresIn: '1h' });
 
-  res.json({ message: 'Usuario registrado exitosamente.' });
+  res.send(token);
 });
+
+
 
 // Ruta de login
 login.post('/login', async (req, res) => {
-  const { gmail, password } = req.body;
+  const token = req.headers['authorization'];
 
-  const user = users.find(u => u.gmail === gmail);
-  const isMatch = await bcrypt.compare(password, user.password);
+   if (!token) { return res.status(401).json({ message: 'dont have token.' }); }
 
-  if (!user || !isMatch) {
-    return res.status(400).json({ message: 'Los datos son incorrectos' });
-  }
-  res.json({ message: `Bienvenido ${user.name} ${user.lastname}!` });
+     try {
+        const decoded = jwt.verify(token, SECRET);
+        const data = decoded; 
+        res.send(data);      
+
+    } catch (err) {
+        return res.status(401).json({ message: 'Invalid token.' });
+    }   
 });
 
 
