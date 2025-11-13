@@ -1,6 +1,9 @@
-let login = require(express).router();
+let express = require('express');
 let users = require("./Users");
 const cypto = require('crypto');
+const bcrypt = require('bcrypt');
+
+const login = express.Router();
 
 
 // where the users registration data will be stored
@@ -24,9 +27,9 @@ login.post('/register', async (req, res) => {
   }
 
   const hashedPassword = await bcrypt.hash(password, 10);
-
+  const id = cypto.randomBytes(16).toString("hex");
   const newUser = {
-    id: crypto.rabdomBytes(8).toString('hex'),
+    id: id,
     name,
     lastname,
     gmail,

@@ -1,16 +1,19 @@
 console.clear();
 // Delete all the console logs before running the code
 
+let login = require('./data/login');
+// 
+
 require('dotenv').config();
 express = require('express');
 const app = express();
-
+// Implementation of middlewares 
 
 Port = process.env.PORT || 4000;
+app.use(express.json());
+// Implementation of routes
 
-// Esquema base de carrito de compras; 
-
-
+app.use('/Shoe', login);
 
 
 app.listen(Port, () => {
