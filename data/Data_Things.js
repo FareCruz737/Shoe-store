@@ -64,4 +64,4 @@ const productos = [
     nombreMarca: "Sperry Top-Sider"
   }
 ];
-module.exports = { productos };
+module.exports =  productos;
