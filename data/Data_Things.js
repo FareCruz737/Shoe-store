@@ -5,7 +5,9 @@ const productos = [
     precio: 75.99,
     marca: "Clarks",
     descripcion: "Zapatos de cuero elegantes, ideales para ocasiones formales.",
-    nombreMarca: "Clarks Originals"
+    nombreMarca: "Clarks Originals", 
+    cantidad: 0
+    
   },
   {
     id: 2,
