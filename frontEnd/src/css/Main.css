@@ -1,0 +1,56 @@
+@import url(../App.css);
+
+.hero-container {
+  width: 100%;
+  padding: 80px 20px;
+ 
+  background: var(--blanco);
+  color: var(--gris-oscuro);
+}
+
+.hero-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero-container p {
+  max-width: 700px;
+  font-size: 1.3rem;
+  color: var(--gris-oscuro);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.hero-buttons button {
+  padding: 12px 25px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 6px;
+  transition: 0.3s ease;
+}
+
+/* Botón Ver Colección */
+.btn-collection {
+  background: var(--gris-oscuro);
+  color: var(--blanco);
+}
+
+.btn-collection:hover {
+  background: #d1d1d1;
+}
+
+/* Botón Ofertas Especiales */
+.btn-offers {
+  background: transparent;
+  border: 2px solid var(--gris-oscuro);
+  color: var(--gris-oscuro);
+}
+
+.btn-offers:hover {
+  background: var(--gris-oscuro);
+  color: var(--gris-oscuro);
+}

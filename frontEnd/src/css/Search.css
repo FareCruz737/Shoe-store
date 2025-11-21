@@ -1,0 +1,51 @@
+@import url(../App.css);
+
+
+#Father_Box {
+  width: 100%;
+  height: 70px;
+  background-color: var(--gris-mucho-oscuro); /* Azul oscuro bonito */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  box-sizing: border-box;
+}
+
+.Box_1 {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.Box_1 h1 {
+  color: var(--gris-claro);
+  font-size: 24px;
+  margin: 0;
+}
+
+.Box_1 a {
+  color: var(--gris-claro);
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.Box_1 a:hover {
+  color: red;
+}
+
+/* Iconos */
+#Father_Box i {
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--gris-claro);
+  margin-left: 50px;
+  transition: 0.3s; 
+
+}
+
+#Father_Box i:hover {
+  color: red;
+}
