@@ -1,0 +1,58 @@
+/* 1. Contenedor Principal (Fondo y Centrado) */
+.presentacion-container {
+    /* Color de fondo similar al de la imagen */
+    background-color: #f5f7fa; 
+    height: 50vh; /* Altura para el banner */
+    min-height: 350px;
+    
+    /* Centrado Horizontal y Vertical */
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-left: 10rem;
+}
+
+/* 2. Caja de Contenido (Alineación y Ancho Máximo) */
+/* Esta clase se aplica a tu motion.div */
+.presentacion-box {
+    max-width: 650px; /* Limita el ancho del contenido como en la imagen */
+    width: 100%;
+    /* Aseguramos que no tenga fondo blanco o sombra, como el diseño */
+    background: none; 
+    box-shadow: none;
+    text-align: left; /* Alineación del texto a la izquierda, clave para el look */
+    padding: 0;
+}
+
+/* 3. Título (Los mejores zapatos a la moda) */
+/* Simulamos el estilo del título grande: "Encuentra el calzado perfecto..." */
+.presentacion-title {
+    font-size: 3em; 
+    color: #0d1117; /* Negro muy oscuro */
+    font-weight: 800; /* Extra-negrita */
+    line-height: 1.1;
+    margin-bottom: 20px; /* Espacio después del título */
+    /* El título original de tu React es "Los mejores zapatos a la moda" */
+}
+
+/* 4. Subtítulo (Para los hombres) */
+/* Simulamos el estilo de la descripción: "Descubre nuestra colección..." */
+.presentacion-subtitle {
+    font-size: 1.15em;
+    color: #4a5568; /* Gris oscuro para la descripción */
+    font-weight: 400;
+    line-height: 1.5;
+    margin-top: 0;
+    max-width: 550px; /* Ajusta el ancho de la descripción */
+    /* El subtítulo original de tu React es "Para los hombres" */
+}
+
+/* Media Query para Títulos en Móviles */
+@media (max-width: 768px) {
+    .presentacion-title {
+        font-size: 2em;
+    }
+    .presentacion-subtitle {
+        font-size: 1em;
+    }
+}
